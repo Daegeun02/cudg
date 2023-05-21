@@ -11,7 +11,7 @@ from functools import reduce
 class gpuarray:
 
 
-    def __init__( self, shape: tuple, gpudata=None ):
+    def __init__( self, shape: tuple, gpudata: ndarray ):
         '''
         GPU Array Type
         '''
@@ -23,19 +23,17 @@ class gpuarray:
 
         self.gpudata = VRAM._request( self.ary_size )
 
-        if ( type( gpudata ) == None.__class__ ):
-            pass
-        elif isinstance( gpudata, VRAM.type ):
-            self.gpudata = gpudata
-        else:
-            self.to_gpu( gpudata )
+        self.to_gpu( gpudata )
 
         self.kernel_size()
 
     
     def __del__( self ):
+        gpudata = self.to_host()
 
         VRAM._return( self.gpudata )
+
+        return gpudata
 
     
     def to_gpu( self, gpudata: ndarray ):
@@ -55,6 +53,7 @@ class gpuarray:
     
     def to_host( self ):
         gpudata = empty( ( self.ary_size ), dtype=float32 )
+
         cuda.memcpy_dtoh( gpudata, self.gpudata )
 
         return gpudata.reshape( self.shape )
