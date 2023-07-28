@@ -14,6 +14,10 @@ class Memory:
         '''
         return cuda.mem_alloc( size * 4 )
 
+    
+    def _filter( self, gpudata ):
+        pass
+
 
     def _return( self, mem: cuda.DeviceAllocation ) -> None:
 

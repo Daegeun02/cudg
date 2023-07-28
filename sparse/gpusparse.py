@@ -44,7 +44,7 @@ class gpusparse:
                     idx.append( row * n_col + col )
                     val.append( val_rc )
         
-        return array( [idx, val] )
+        return array( [idx, val], dtype=float32 )
 
     
     def _to_gpu( self, gpudata: ndarray ):
@@ -58,5 +58,5 @@ class gpusparse:
 
         if ( self.ary_size == _sparse.shape[1] ):
 
-            cuda.memcpy_htod( self.idxdata, _sparse[0,:] )
-            cuda.memcpy_htod( self.gpudata, _sparse[1,:] )
+            cuda.memcpy_htod( self.idxdata, _sparse[0,:].astype(int32)   )
+            cuda.memcpy_htod( self.gpudata, _sparse[1,:].astype(float32) )
