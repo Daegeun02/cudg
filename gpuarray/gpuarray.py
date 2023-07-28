@@ -1,4 +1,4 @@
-from VRAManager import VRAM, cuda
+from ..VRAManager import VRAM, cuda
 
 from numpy import ndarray
 from numpy import empty
