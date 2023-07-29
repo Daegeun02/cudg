@@ -29,11 +29,8 @@ class gpuarray:
 
     
     def __del__( self ):
-        gpudata = self.to_host()
 
         VRAM._return( self.gpudata )
-
-        return gpudata
 
     
     def to_gpu( self, gpudata: ndarray ):
