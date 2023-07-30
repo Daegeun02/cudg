@@ -23,9 +23,9 @@ def dot( rtrn, ary1, ary2, stream=None ):
     _grid  = (shp1[0],shp2[1])
 
     _dot(
-        rtrn, it,
-        ary1, ary1.n_row, ary1.n_col,
-        ary2, ary2.n_row, ary2.n_col,
+        rtrn.gpudata, it,
+        ary1.gpudata, ary1.n_row, ary1.n_col,
+        ary2.gpudata, ary2.n_row, ary2.n_col,
         block=_block, grid=_grid
     )
 
