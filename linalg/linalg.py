@@ -1,8 +1,8 @@
 from math import sqrt, ceil
 from numpy import int32, float32
 
-from linalgcore import LinearAlgebraCore
-from linalgcore import dot_kernel
+from .linalgcore import LinearAlgebraCore
+from .linalgcore import dot_kernel
 
 
 
