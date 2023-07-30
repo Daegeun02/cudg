@@ -4,6 +4,8 @@ from numpy import ndarray
 from numpy import empty
 from numpy import int32, float32
 
+from math import sqrt, ceil
+
 from functools import reduce
 
 
@@ -63,3 +65,6 @@ class gpuarray:
 
         self._block = (32,32,1)
         self._grid  = (bx,by,1)
+
+        self.tx = int( sqrt( self.shape[1] ) )
+        self.it = int32( ceil( self.shape[1] / self.tx ) )
