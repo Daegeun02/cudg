@@ -4,4 +4,4 @@
 from .gpuarray import gpuarray
 
 ## cudg linalg functions
-import linalg
+from . import linalg
