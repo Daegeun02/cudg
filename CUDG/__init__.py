@@ -1,3 +1,4 @@
+version = '__0.0.2__'
 ## cudg gpuarray type
 
 ## cudg gpuarray class

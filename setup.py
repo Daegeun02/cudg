@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='CUDG',
-    version='0.0.1',
+    version='0.0.2',
     description='CUDG is for gpuarray type for convenience',
     author='Daegeun02',
     author_email='redhawkdg02@gmail.com',
