@@ -1,6 +1,0 @@
-
-
-
-class Assigner:
-
-    pass

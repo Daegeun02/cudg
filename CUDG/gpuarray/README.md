@@ -1,2 +1,0 @@
-cudg gpuarray type
-
